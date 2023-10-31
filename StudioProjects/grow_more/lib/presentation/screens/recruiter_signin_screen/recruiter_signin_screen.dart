@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:grow_more/manager/color_manager.dart';
 import 'package:grow_more/manager/image_manager.dart';
 import 'package:grow_more/manager/text_style_manager.dart';
+import 'package:grow_more/presentation/screens/recommend_job_screen/widgets/height_with4.dart';
+import 'package:grow_more/presentation/screens/sign_in_screen.dart/sign_in_screen.dart';
 import 'package:grow_more/presentation/screens/spash_screen/spash_screen.dart';
 import 'package:grow_more/presentation/widgets/height_0.2.dart';
 import 'package:grow_more/utils/util_dimensions.dart';
 
-class SignInScreen extends StatelessWidget {
-  SignInScreen({super.key});
+class RecruiterSignInScreen extends StatelessWidget {
+   RecruiterSignInScreen({super.key});
 
   final TextEditingController numberController=TextEditingController();
 
@@ -26,7 +27,7 @@ class SignInScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Candidate',
+                          'Recruiter',
                           style: appFonts.f20black,
                         ),
                         Text(
@@ -39,7 +40,7 @@ class SignInScreen extends StatelessWidget {
                           width: 70,
                           decoration: BoxDecoration(
                               image: DecorationImage(
-                                  image: AssetImage(appImage.candidate),
+                                  image: AssetImage(appImage.recruiter),
                                   fit: BoxFit.contain)),
                         )
                       ],
@@ -54,7 +55,7 @@ class SignInScreen extends StatelessWidget {
                     SizedBox(height: screenHeight(context) * 0.05),
                     InkWell(
                       onTap: () {
-                        Get.toNamed('/OtpScreen');
+                        Get.toNamed('/RecruiterOtpScreen');
                       },
                       child: const SubmitButtonWidget(buttonText: 'Send Code')),
                     SizedBox(height: screenHeight(context) * 0.03),
@@ -76,39 +77,18 @@ class SignInScreen extends StatelessWidget {
                               style: appFonts.f14bluegrey
                             )
                           ]),
-                    )
+                    ),
+                    const HeightWith(),
+                     const Divider(),
+                     const HeightWith1(),
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('What a job ? Click Here',style: TextStyle(fontSize: 12)),
+                        ],
+                      )
                   ]))),
     );
   }
 }
 
-class NormalTextField extends StatelessWidget {
-  final Widget? trailing;
-  final String hintInside;
-    final TextEditingController controller;
-
-  const NormalTextField({
-    super.key,
-    this.trailing,
-    required this.hintInside,
-    required this.controller
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      controller: controller,
-      decoration: InputDecoration(
-        suffixIcon: trailing,
-          border: UnderlineInputBorder(
-              borderSide: BorderSide(
-                  color: appColors.appPrimaryGrey)),
-          enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(
-                  color: appColors.appPrimaryGrey)),
-          hintText: hintInside,
-          hintStyle:
-              TextStyle(color: appColors.appPrimaryGrey)),
-    );
-  }
-}

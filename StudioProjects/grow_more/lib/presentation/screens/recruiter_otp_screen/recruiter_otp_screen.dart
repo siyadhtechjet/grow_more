@@ -6,8 +6,8 @@ import 'package:grow_more/manager/text_style_manager.dart';
 import 'package:grow_more/utils/util_dimensions.dart';
 import 'package:pinput/pinput.dart';
 
-class OtpScreen extends StatelessWidget {
-  OtpScreen({super.key});
+class RecruiterOtpScreen extends StatelessWidget {
+  RecruiterOtpScreen({super.key});
 
   final defaultPinTheme = PinTheme(
     width: 56,
@@ -37,7 +37,7 @@ class OtpScreen extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                Get.toNamed('/AddProfileScreen');
+                Get.toNamed('/RecruiterJobDetailScreen');
               },
               child: Text(
                 'Enter 6- Digit code',
@@ -56,7 +56,7 @@ class OtpScreen extends StatelessWidget {
               pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
               showCursor: true,
               onCompleted: (value) {
-                Get.toNamed('/AddProfileScreen');
+                Get.toNamed('/RecruiterJobDetailScreen');
               },
             ),
             SizedBox(

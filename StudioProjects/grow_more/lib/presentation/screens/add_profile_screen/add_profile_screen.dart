@@ -11,7 +11,10 @@ import 'package:grow_more/presentation/widgets/height_0.2.dart';
 import 'package:grow_more/utils/util_dimensions.dart';
 
 class AddProfileScreen extends StatelessWidget {
-  const AddProfileScreen({super.key});
+   AddProfileScreen({super.key});
+
+  final TextEditingController nameController=TextEditingController();
+  final TextEditingController emailController=TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,9 @@ class AddProfileScreen extends StatelessWidget {
         title: Row(
           children: [
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.back();
+                },
                 icon: const Icon(
                   Icons.arrow_back,
                   color: Colors.black,
@@ -60,9 +65,13 @@ class AddProfileScreen extends StatelessWidget {
                 ],
               ),
               const HeightWith(),
-              const NormalTextField(hintInside: 'Full Name'),
+               NormalTextField(
+                controller: nameController,
+                hintInside: 'Full Name'),
               const HeightWith(),
-              const NormalTextField(hintInside: 'Email ID'),
+               NormalTextField(
+                controller: emailController,
+                hintInside: 'Email ID'),
               const HeightWith(),
               Text(
                 'Gender',

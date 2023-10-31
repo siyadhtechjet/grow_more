@@ -66,7 +66,7 @@ class DeviateScreen extends StatelessWidget {
                 const HeightWith(),
                 InkWell(
                   onTap: () {
-                    // Get.toNamed('/ExploreScreen');
+                    Get.toNamed('/RecruiterExploreScreen');
                   },
                   child: UserButton(leading: 'Recruiter',userLogo: appImage.recruiter)),
                 

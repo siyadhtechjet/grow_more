@@ -4,18 +4,18 @@ import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:grow_more/manager/color_manager.dart';
 import 'package:grow_more/manager/image_manager.dart';
-import 'package:grow_more/presentation/screens/explore_screen/widgets/pageview_elements.dart';
+import 'package:grow_more/presentation/screens/recruiter_explore_screen/widgets/recruiter_pageview.dart';
 import 'package:grow_more/presentation/screens/spash_screen/spash_screen.dart';
 import 'package:grow_more/utils/util_dimensions.dart';
 
-class ExploreScreen extends StatefulWidget {
-  const ExploreScreen({Key? key}) : super(key: key);
+class RecruiterExploreScreen extends StatefulWidget {
+  const RecruiterExploreScreen({Key? key}) : super(key: key);
 
   @override
   _ExploreScreenState createState() => _ExploreScreenState();
 }
 
-class _ExploreScreenState extends State<ExploreScreen> {
+class _ExploreScreenState extends State<RecruiterExploreScreen> {
   int currentPage = 0;
 
   final PageController pageController = PageController();
@@ -69,14 +69,16 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   controller: pageController,
                   scrollDirection: Axis.horizontal,
                   children: [
-                    PageViewElements(
+                    RecruiterPageViewElements(
+                      contentHead: 'Simplify Your Hiring Process',
                         content:
-                            'Explore job opportunities, connect with employers, and boost your career',
-                        contentImage: appImage.explore1),
-                    PageViewElements(
+                            'Easily create and publish job listings, update details, and track applicants in one place."',
+                        contentImage: appImage.explore3),
+                    RecruiterPageViewElements(
+                      contentHead: 'Post, Edit, and Track Open Positions',
                         content:
-                            'Grow More offers you a world of opportunities to excel in your career',
-                        contentImage: appImage.explore2),
+                            'Easily create and publish job listings, update details, and track applicants in one place."',
+                        contentImage: appImage.explore4),
                   ],
                 ),
               ),
@@ -99,7 +101,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                 padding: const EdgeInsets.symmetric(horizontal:8.0),
                 child: InkWell(
                   onTap: () {
-                    Get.toNamed('/SignInScreen');
+                    Get.toNamed('/RecruiterSignInScreen');
                   },
                   child:const SubmitButtonWidget(buttonText: 'Next'))
               )

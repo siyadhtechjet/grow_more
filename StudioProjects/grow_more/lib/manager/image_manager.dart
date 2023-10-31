@@ -8,4 +8,13 @@ class AppImage {
   String explore2 = 'assets/images/search.png';
   String graph = 'assets/images/Bars.png';
   String proPic = 'assets/images/propic.png';
+  String tickIcon ='assets/images/tick.png';
+  String paperPlane ='assets/images/paperplane.png';
+  String map ='assets/images/map.png';
+  String alertTick ='assets/images/alert_tick.png';
+  String explore3 ='assets/images/resume.png';
+  String explore4 ='assets/images/cuate2.png';
+  String pro1 = 'assets/images/pro1.png';
+  String pro2 = 'assets/images/pro2.png';
+  String myResume = 'assets/images/myresume.png';
 }
