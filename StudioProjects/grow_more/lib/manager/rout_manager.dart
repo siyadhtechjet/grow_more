@@ -26,7 +26,7 @@ List<GetPage>onAppRouting(){
       GetPage(name: '/ExploreScreen', page: () =>const ExploreScreen(),),
       GetPage(name: '/SignInScreen', page: () => SignInScreen(),),
       GetPage(name: '/OtpScreen', page: () => OtpScreen(),),
-      GetPage(name: '/AddProfileScreen', page: () => AddProfileScreen(),),
+      GetPage(name: '/AddProfileScreen', page: () =>const AddProfileScreen(),),
       GetPage(name: '/JobPreferenceScreen', page: () =>const JobPreferenceScreen(),),
       GetPage(name: '/RecommentJobScreen', page: () => RecommentJobScreen(),),
       GetPage(name: '/JobDescriptionScreen', page: () => const JobDescriptionScreen(),),

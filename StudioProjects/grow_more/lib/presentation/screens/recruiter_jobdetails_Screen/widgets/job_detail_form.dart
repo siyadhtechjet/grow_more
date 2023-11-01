@@ -23,109 +23,111 @@ final TextEditingController noController=TextEditingController();
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          DropDownTextField(
-          textFieldDecoration: InputDecoration(
-              border: UnderlineInputBorder(
-                  borderSide:
-                      BorderSide(color: appColors.appPrimaryGrey)),
-              enabledBorder: UnderlineInputBorder(
-                  borderSide:
-                      BorderSide(color: appColors.appPrimaryGrey)),
-              hintText: 'I want to hire',
-              hintStyle:
-                  TextStyle(color: appColors.appPrimaryGrey)),
-          dropDownItemCount: jobType.length,
-          dropDownList: List.generate(
-              3,
-              (index) => DropDownValueModel(
-                  name: jobType[index], value: jobType[index])),
-          onChanged: (val) {},
-        ),
-        const HeightWith4(),
-        DropDownTextField(
-          textFieldDecoration: InputDecoration(
-              border: UnderlineInputBorder(
-                  borderSide:
-                      BorderSide(color: appColors.appPrimaryGrey)),
-              enabledBorder: UnderlineInputBorder(
-                  borderSide:
-                      BorderSide(color: appColors.appPrimaryGrey)),
-              hintText: 'I want to hire',
-              hintStyle:
-                  TextStyle(color: appColors.appPrimaryGrey)),
-          dropDownItemCount: jobType.length,
-          dropDownList: List.generate(
-              3,
-              (index) => DropDownValueModel(
-                  name: jobType[index], value: jobType[index])),
-          onChanged: (val) {},
-        ),
-        const HeightWith4(),
-        Text(
-          'Expected Salary',
-          style:
-              TextStyle(fontSize: 16, color: appColors.appPrimaryGrey),
-        ),
-        const HeightWith4(),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: screenHeight(context) * 0.17,
-              decoration: BoxDecoration(
-                  border: Border.all(color: appColors.appPrimaryGrey)),
-              child:  Padding(
-                padding:const EdgeInsets.only(left: 8.0),
-                child: NormalTextField(
-                  controller: fromLpa,
-                  hintInside: 'LPA'),
+            DropDownTextField(
+            textFieldDecoration: InputDecoration(
+                border: UnderlineInputBorder(
+                    borderSide:
+                        BorderSide(color: appColors.appPrimaryGrey)),
+                enabledBorder: UnderlineInputBorder(
+                    borderSide:
+                        BorderSide(color: appColors.appPrimaryGrey)),
+                hintText: 'I want to hire',
+                hintStyle:
+                    TextStyle(color: appColors.appPrimaryGrey)),
+            dropDownItemCount: jobType.length,
+            dropDownList: List.generate(
+                3,
+                (index) => DropDownValueModel(
+                    name: jobType[index], value: jobType[index])),
+            onChanged: (val) {},
+          ),
+          const HeightWith4(),
+          DropDownTextField(
+            textFieldDecoration: InputDecoration(
+                border: UnderlineInputBorder(
+                    borderSide:
+                        BorderSide(color: appColors.appPrimaryGrey)),
+                enabledBorder: UnderlineInputBorder(
+                    borderSide:
+                        BorderSide(color: appColors.appPrimaryGrey)),
+                hintText: 'I want to hire',
+                hintStyle:
+                    TextStyle(color: appColors.appPrimaryGrey)),
+            dropDownItemCount: jobType.length,
+            dropDownList: List.generate(
+                3,
+                (index) => DropDownValueModel(
+                    name: jobType[index], value: jobType[index])),
+            onChanged: (val) {},
+          ),
+          const HeightWith4(),
+          Text(
+            'Expected Salary',
+            style:
+                TextStyle(fontSize: 16, color: appColors.appPrimaryGrey),
+          ),
+          const HeightWith4(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                width: screenHeight(context) * 0.17,
+                decoration: BoxDecoration(
+                    border: Border.all(color: appColors.appPrimaryGrey)),
+                child:  Padding(
+                  padding:const EdgeInsets.only(left: 8.0),
+                  child: NormalTextField(
+                    controller: fromLpa,
+                    hintInside: 'LPA'),
+                ),
               ),
-            ),
-            Text(
-              'To',
-              style: appFonts.f15black,
-            ),
-            Container(
-              width: screenHeight(context) * 0.17,
-              decoration: BoxDecoration(
-                  border: Border.all(color: appColors.appPrimaryGrey)),
-              child:  Padding(
-                padding:const EdgeInsets.only(left: 8.0),
-                child: NormalTextField(
-                  controller: toLpa,
-                  hintInside: 'LPA'),
+              Text(
+                'To',
+                style: appFonts.f15black,
               ),
-            ),
+              Container(
+                width: screenHeight(context) * 0.17,
+                decoration: BoxDecoration(
+                    border: Border.all(color: appColors.appPrimaryGrey)),
+                child:  Padding(
+                  padding:const EdgeInsets.only(left: 8.0),
+                  child: NormalTextField(
+                    controller: toLpa,
+                    hintInside: 'LPA'),
+                ),
+              ),
+            ],
+          ),
+          const HeightWith4(),
+          Text(
+            'No of Staff Required',
+            style:
+                TextStyle(fontSize: 16, color: appColors.appPrimaryGrey),
+          ),
+          const HeightWith4(),
+          Container(
+                width: screenHeight(context) * 0.17,
+                decoration: BoxDecoration(
+                    border: Border.all(color: appColors.appPrimaryGrey)),
+                child:  Padding(
+                  padding:const EdgeInsets.only(left: 8.0),
+                  child: NormalTextField(
+                    controller: noController,
+                    hintInside: 'No.'),
+                ),
+              ),
+              const HeightWith4(),
+              InkWell(
+                onTap: () {
+                 buttonFunction();
+               },
+                child: const SubmitButtonWidget(buttonText: 'Submit'))
           ],
         ),
-        const HeightWith4(),
-        Text(
-          'No of Staff Required',
-          style:
-              TextStyle(fontSize: 16, color: appColors.appPrimaryGrey),
-        ),
-        const HeightWith4(),
-        Container(
-              width: screenHeight(context) * 0.17,
-              decoration: BoxDecoration(
-                  border: Border.all(color: appColors.appPrimaryGrey)),
-              child:  Padding(
-                padding:const EdgeInsets.only(left: 8.0),
-                child: NormalTextField(
-                  controller: noController,
-                  hintInside: 'No.'),
-              ),
-            ),
-            const HeightWith4(),
-            InkWell(
-              onTap: () {
-               buttonFunction();
-             },
-              child: const SubmitButtonWidget(buttonText: 'Submit'))
-        ],
       ),
     );
   }

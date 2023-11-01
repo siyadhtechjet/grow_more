@@ -12,12 +12,12 @@ import 'package:grow_more/utils/util_dimensions.dart';
 
 List<String> jobType = ['Full Time', 'On Site', 'Part Time'];
 List<String> cities = [
-  'Karnataka',
-  'Tamil Nadu',
-  'Kerala',
-  'Maharastra',
-  'West Bengal',
-  'Talengana'
+  'Bangalore',
+  'Chennai',
+  'Mumbai',
+  'Kochi',
+  'Hyderabad',
+  'Kolkata'
 ];
 
 class JobPreferenceScreen extends StatefulWidget {

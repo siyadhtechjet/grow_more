@@ -4,17 +4,24 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:grow_more/manager/color_manager.dart';
 import 'package:grow_more/manager/image_manager.dart';
 import 'package:grow_more/manager/text_style_manager.dart';
-import 'package:grow_more/presentation/screens/add_profile_screen/widgets/radio_tile.dart';
 import 'package:grow_more/presentation/screens/sign_in_screen.dart/sign_in_screen.dart';
 import 'package:grow_more/presentation/screens/spash_screen/spash_screen.dart';
 import 'package:grow_more/presentation/widgets/height_0.2.dart';
 import 'package:grow_more/utils/util_dimensions.dart';
 
-class AddProfileScreen extends StatelessWidget {
-   AddProfileScreen({super.key});
+class AddProfileScreen extends StatefulWidget {
+ const AddProfileScreen({super.key});
 
-  final TextEditingController nameController=TextEditingController();
-  final TextEditingController emailController=TextEditingController();
+  @override
+  State<AddProfileScreen> createState() => _AddProfileScreenState();
+}
+
+class _AddProfileScreenState extends State<AddProfileScreen> {
+  final TextEditingController nameController = TextEditingController();
+
+  final TextEditingController emailController = TextEditingController();
+  int selectedValue = 0;
+  bool isContentVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +47,7 @@ class AddProfileScreen extends StatelessWidget {
       ),
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal:15,vertical: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,8 +58,8 @@ class AddProfileScreen extends StatelessWidget {
                     height: 120,
                     width: 120,
                     decoration: BoxDecoration(
-                        image:
-                            DecorationImage(image: AssetImage(appImage.proPic))),
+                        image: DecorationImage(
+                            image: AssetImage(appImage.proPic))),
                   ),
                   Positioned(
                       bottom: 0,
@@ -65,32 +72,75 @@ class AddProfileScreen extends StatelessWidget {
                 ],
               ),
               const HeightWith(),
-               NormalTextField(
-                controller: nameController,
-                hintInside: 'Full Name'),
+              NormalTextField(
+                  controller: nameController, hintInside: 'Full Name'),
               const HeightWith(),
-               NormalTextField(
-                controller: emailController,
-                hintInside: 'Email ID'),
+              NormalTextField(
+                  controller: emailController, hintInside: 'Email ID'),
               const HeightWith(),
               Text(
                 'Gender',
                 style: TextStyle(fontSize: 18, color: appColors.appPrimaryGrey),
               ),
-              const Padding(
-                padding: EdgeInsets.only(right: 12),
+              Padding(
+                padding:const EdgeInsets.only(right: 12),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    RadioTileWidget(
-                      radioTitle: 'Male',
+                    Row(
+                      children: [
+                        Radio(
+                          value: 1,
+                          groupValue: selectedValue,
+                          onChanged: (value) {
+                            setState(() {
+                              selectedValue = value!;
+                              isContentVisible = true;
+                            });
+                          },
+                        ),
+                        Text(
+                          'Male',
+                          style: appFonts.f15grey,
+                        )
+                      ],
                     ),
-                    RadioTileWidget(
-                      radioTitle: 'Female',
+                    Row(
+                      children: [
+                        Radio(
+                          value: 2,
+                          groupValue: selectedValue,
+                          onChanged: (value) {
+                            setState(() {
+                              selectedValue = value!;
+                              isContentVisible = true;
+                            });
+                          },
+                        ),
+                        Text(
+                          'Female',
+                          style: appFonts.f15grey,
+                        )
+                      ],
                     ),
-                    RadioTileWidget(
-                      radioTitle: 'Other',
-                    )
+                    Row(
+                      children: [
+                        Radio(
+                          value: 3,
+                          groupValue: selectedValue,
+                          onChanged: (value) {
+                            setState(() {
+                              selectedValue = value!;
+                              isContentVisible = true;
+                            });
+                          },
+                        ),
+                        Text(
+                          'Other',
+                          style: appFonts.f15grey,
+                        )
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -105,7 +155,8 @@ class AddProfileScreen extends StatelessWidget {
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),
-                        borderSide: BorderSide(color: appColors.appPrimaryGrey))),
+                        borderSide:
+                            BorderSide(color: appColors.appPrimaryGrey))),
               ),
               const HeightWith(),
               Text(
@@ -114,26 +165,32 @@ class AddProfileScreen extends StatelessWidget {
               ),
               const HeightWith(),
               Container(
-                height: screenHeight(context)*0.15,
+                height: screenHeight(context) * 0.15,
                 decoration: BoxDecoration(
-                  color: appColors.appPrimaryGrey,
-                  borderRadius: BorderRadius.circular(20)
-                ),
+                    color: appColors.appPrimaryGrey,
+                    borderRadius: BorderRadius.circular(20)),
                 child: Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                    Icon(Icons.upload,color: appColors.appPrimaryBlue,),
-                    Text('Browse File',style: appFonts.f15black,)
-                  ],),
+                      Icon(
+                        Icons.upload,
+                        color: appColors.appPrimaryBlue,
+                      ),
+                      Text(
+                        'Browse File',
+                        style: appFonts.f15black,
+                      )
+                    ],
+                  ),
                 ),
               ),
               const HeightWith(),
               InkWell(
-                onTap: () {
-                  Get.toNamed('/JobPreferenceScreen');
-                },
-                child: const SubmitButtonWidget(buttonText: 'Submit'))
+                  onTap: () {
+                    Get.toNamed('/JobPreferenceScreen');
+                  },
+                  child: const SubmitButtonWidget(buttonText: 'Submit'))
             ],
           ),
         ),
@@ -141,4 +198,3 @@ class AddProfileScreen extends StatelessWidget {
     );
   }
 }
-

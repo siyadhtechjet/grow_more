@@ -4,6 +4,7 @@ import 'package:grow_more/manager/color_manager.dart';
 import 'package:grow_more/manager/image_manager.dart';
 import 'package:grow_more/manager/text_style_manager.dart';
 import 'package:grow_more/presentation/screens/recommend_job_screen/widgets/height_with4.dart';
+import 'package:grow_more/presentation/screens/recruiter_profile_screen/widgets/profile_textfield.dart';
 import 'package:grow_more/presentation/screens/spash_screen/spash_screen.dart';
 import 'package:grow_more/presentation/widgets/height_0.2.dart';
 import 'package:grow_more/utils/util_dimensions.dart';
@@ -64,17 +65,17 @@ class RecruiterProfileScreen extends StatelessWidget {
           const HeightWith(),
           const ProfileTextFieldWidget(
             hint: 'Email',
-            hintIcon: FontAwesomeIcons.user,
+            hintIcon: FontAwesomeIcons.envelope,
           ),
           const HeightWith(),
           const ProfileTextFieldWidget(
             hint: 'Mobile Number',
-            hintIcon: FontAwesomeIcons.user,
+            hintIcon: FontAwesomeIcons.phone,
           ),
           const HeightWith(),
            ProfileTextFieldWidget(
             hint: 'Password',
-            hintIcon: FontAwesomeIcons.user,
+            hintIcon: FontAwesomeIcons.unlock,
             sufixHint: Icon(FontAwesomeIcons.eyeSlash,color: appColors.appPrimaryGrey,),
           ),
           const HeightWith(),
@@ -93,28 +94,3 @@ class RecruiterProfileScreen extends StatelessWidget {
   }
 }
 
-class ProfileTextFieldWidget extends StatelessWidget {
-  final String hint;
-  final IconData hintIcon;
-  final Icon? sufixHint;
-  const ProfileTextFieldWidget({
-    super.key,
-    required this.hint,
-    required this.hintIcon,
-    this.sufixHint
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      child: TextField(
-        decoration: InputDecoration(
-          hintText: hint,
-          suffixIcon: sufixHint,
-          prefixIcon: Icon(hintIcon,color: appColors.appPrimaryBlue,),
-          enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: appColors.appPrimaryGrey))
-        ),
-      ),
-    );
-  }
-}
