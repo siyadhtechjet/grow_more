@@ -13,14 +13,20 @@ import 'package:grow_more/utils/util_dimensions.dart';
 
 List<CategoryModel> categoryDta = [
   CategoryModel(
+    status: true,
       categoryIcon: Icons.business_outlined, categoryTitle: 'Business'),
   CategoryModel(
+    status: false,
       categoryIcon: Icons.health_and_safety, categoryTitle: 'Health Care'),
   CategoryModel(
+    status: true,
       categoryIcon: Icons.fitness_center_outlined, categoryTitle: 'Fintech'),
   CategoryModel(
+    status: false,
       categoryIcon: Icons.developer_mode_rounded, categoryTitle: 'Development'),
-  CategoryModel(categoryIcon: Icons.list_outlined, categoryTitle: 'Others')
+  CategoryModel(
+    status: true,
+    categoryIcon: Icons.list_outlined, categoryTitle: 'Others')
 ];
 
 class RecommentJobScreen extends StatelessWidget {

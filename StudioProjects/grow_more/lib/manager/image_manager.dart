@@ -17,4 +17,6 @@ class AppImage {
   String pro1 = 'assets/images/pro1.png';
   String pro2 = 'assets/images/pro2.png';
   String myResume = 'assets/images/myresume.png';
+  String active = 'assets/images/active.png';
+  String inactive = 'assets/images/inactive.png';
 }

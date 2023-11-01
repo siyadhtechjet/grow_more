@@ -69,7 +69,10 @@ class _RecruiterJobScreenState extends State<RecruiterJobScreen> {
               child: Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
-                    border: Border.all(color: Colors.teal)),
+                    border: Border.all(
+                        color: categoryDta[index].status == true
+                            ? Colors.teal
+                            : appColors.appPrimaryGrey)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -85,15 +88,23 @@ class _RecruiterJobScreenState extends State<RecruiterJobScreen> {
                                 categoryDta[index].categoryTitle,
                                 style: appFonts.f20black,
                               ),
-                              Switch(
-                                inactiveThumbColor: Colors.grey,
-                                activeColor: Colors.teal,
-                                value: false,
-                                onChanged: (value) {
-                                  setState(() {
-                                    status == value;
-                                  });
-                                },
+                              Padding(
+                                padding: const EdgeInsets.only(top: 8,right:8.0),
+                                child: Transform.scale(
+                                  scale: 1.5,
+                                  child: Switch(
+                                    activeThumbImage: AssetImage(appImage.active),
+                                    inactiveThumbImage: AssetImage(appImage.inactive),
+                                    inactiveThumbColor: Colors.grey,
+                                    activeColor: Colors.teal,
+                                    value: categoryDta[index].status,
+                                    onChanged: (value) {
+                                      setState(() {
+                                        categoryDta[index].status = value;
+                                      });
+                                    },
+                                  ),
+                                ),
                               )
                             ],
                           ),
@@ -145,8 +156,6 @@ class _RecruiterJobScreenState extends State<RecruiterJobScreen> {
   }
 }
 
-
-
 class ProfileDrawer extends StatelessWidget {
   const ProfileDrawer({
     super.key,
@@ -156,51 +165,76 @@ class ProfileDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: Colors.white,
-
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal:15,vertical: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
         child: ListView(
           children: [
             ListTile(
               leading: CircleAvatar(
                 radius: 30,
-                backgroundImage: AssetImage(appImage.proPic),),
-              title:const Text('Karishma Patil'),
-              subtitle: Text('Hiring Manager',style: appFonts.f12Bluegrey,),
+                backgroundImage: AssetImage(appImage.proPic),
+              ),
+              title: const Text('Karishma Patil'),
+              subtitle: Text(
+                'Hiring Manager',
+                style: appFonts.f12Bluegrey,
+              ),
             ),
-            SizedBox(height: screenHeight(context)*0.08,),
+            SizedBox(
+              height: screenHeight(context) * 0.08,
+            ),
             const ListTile(
-              leading: Icon(FontAwesomeIcons.house,size: 20,),
+              leading: Icon(
+                FontAwesomeIcons.house,
+                size: 20,
+              ),
               title: Text('Home'),
             ),
             const ListTile(
-              leading: Icon(FontAwesomeIcons.rectangleList,size: 20,),
+              leading: Icon(
+                FontAwesomeIcons.rectangleList,
+                size: 20,
+              ),
               title: Text('Job Listings'),
             ),
             const ListTile(
-              leading: Icon(FontAwesomeIcons.reply,size: 20,),
+              leading: Icon(
+                FontAwesomeIcons.reply,
+                size: 20,
+              ),
               title: Text('Responses'),
             ),
             const ListTile(
-              leading: Icon(FontAwesomeIcons.bookmark,size: 20,),
+              leading: Icon(
+                FontAwesomeIcons.bookmark,
+                size: 20,
+              ),
               title: Text('Saved Resumes'),
             ),
-             ListTile(
+            ListTile(
               onTap: () {
                 Get.toNamed('/RecruiterProfileScreen');
               },
-              leading:const Icon(FontAwesomeIcons.user,size: 20,),
-              title:const Text('Profile'),
+              leading: const Icon(
+                FontAwesomeIcons.user,
+                size: 20,
+              ),
+              title: const Text('Profile'),
             ),
             const ListTile(
-              leading: Icon(FontAwesomeIcons.gear,size: 20,),
+              leading: Icon(
+                FontAwesomeIcons.gear,
+                size: 20,
+              ),
               title: Text('Settings'),
             ),
             const ListTile(
-              leading: Icon(FontAwesomeIcons.rightFromBracket,size: 20,),
+              leading: Icon(
+                FontAwesomeIcons.rightFromBracket,
+                size: 20,
+              ),
               title: Text('Logout'),
             )
-           
           ],
         ),
       ),
