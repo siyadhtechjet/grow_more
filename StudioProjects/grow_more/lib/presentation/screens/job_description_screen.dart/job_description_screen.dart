@@ -190,7 +190,7 @@ class JobDescriptionScreen extends StatelessWidget {
                         builder: (context) {
                           return AlertBoxWidget(
                             mainContent: SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.37,
+                              height: MediaQuery.of(context).size.height * 0.4,
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [

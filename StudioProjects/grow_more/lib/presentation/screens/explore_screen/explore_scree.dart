@@ -53,11 +53,16 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     image: DecorationImage(image: AssetImage(appImage.graph)),
                   ),
                 ),
-                trailing: const Text(
-                  'Skip',
-                  style: TextStyle(
-                    color: Colors.orange,
-                    decoration: TextDecoration.underline,
+                trailing: InkWell(
+                  onTap: () {
+                    Get.toNamed('/SignInScreen');
+                  },
+                  child: const Text(
+                    'Skip',
+                    style: TextStyle(
+                      color: Colors.orange,
+                      decoration: TextDecoration.underline,
+                    ),
                   ),
                 ),
               ),
@@ -99,7 +104,12 @@ class _ExploreScreenState extends State<ExploreScreen> {
                 padding: const EdgeInsets.symmetric(horizontal:8.0),
                 child: InkWell(
                   onTap: () {
-                    Get.toNamed('/SignInScreen');
+                    
+                    if (pageController.page==1) {
+                      Get.toNamed('/SignInScreen');
+                    }else{
+                      pageController.nextPage(duration:const Duration(microseconds: 200), curve: Curves.linear);
+                    }
                   },
                   child:const SubmitButtonWidget(buttonText: 'Next'))
               )
